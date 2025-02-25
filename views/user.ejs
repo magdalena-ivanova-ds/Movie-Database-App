@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
+    <div class="form1" style="display: flex; flex-direction: column;">
+        <h1>Movie Details</h1>
+        <p>Title: <%= user.title %></p>
+        <p>Year: <%= user.year %></p>
+        <p>Actors: <%= user.mainActors %></p>
+        <p>Genre: <%= user.genre %></p>
+        <p>Description: <%= user.description %></p>
+        <div style="display: flex; justify-content: center;">
+            <form action="/users/<%= user.id %>/edit" method="get" style="display: inline;">
+                <button type="submit">Edit</button>
+            </form>    
+            <form action="/users/<%= user.id %>/delete" method="post" style="display:inline;">
+                <button type="submit">Delete</button>
+            </form>
+            <form action="/users" style="display: inline;">
+                <button type="submit">Back</button>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
