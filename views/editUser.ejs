@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Movie</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Edit Movie</h1>
+    <form action="/users/<%= user.id %>" method="post" class="form1">
+        <input type="hidden" name="id" value="<%= user.id %>"> <!-- Hidden input to keep track of the movie ID -->
+        
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" value="<%= user.title %>" required>
+        <br>
+        
+        <label for="year">Year:</label>
+        <input type="number" id="year" name="year" value="<%= user.year %>" required>
+        <br>
+        
+        <label for="mainActors">Main Actors (comma-separated):</label>
+        <input type="text" id="mainActors" name="mainActors" value="<%= user.mainActors %>" required>
+        <br>
+        
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" name="genre" value="<%= user.genre %>" required>
+        <br>
+        
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required><%= user.description %></textarea>
+        <br>
+        
+        <button type="submit" class="button" id="center-button" style="display: flex; justify-self: center;">Save</button>
+    </form>
+    <form action="/users">
+        <button type="submit" class="button" style="width: 540px; display: flex; justify-self: center; justify-content: center;">Back</button>
+    </form>
+</body>
+</html>
+
