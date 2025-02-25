@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Movies</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>All Movies</h1>
+    <form action="/users/new" method="get">
+        <button type="submit" class="button" style="display: flex; justify-self: center; padding: 20px 50px;">Add new movie</button>
+      </form>      
+    <ul class="user-list"> <!-- Loop through each movie and display their details with options to view, edit, or delete -->
+        <% users.forEach(user => { %>
+            <li>
+                <h2><%= user.title %></h2>
+                <div class="button-group" style="margin-top: 30px;">
+                    <form action="/users/<%= user.id %>" method="get" style="display:inline;">
+                        <button type="submit" class="button">View details</button>
+                    </form>
+                    
+                    <form action="/users/<%= user.id %>/edit" method="get" style="display:inline;">
+                        <button type="submit" class="button">Edit</button>
+                    </form>
+                    
+                    <form action="/users/<%= user.id %>/delete" method="post" style="display:inline;">
+                        <button type="submit" class="button">Delete</button>
+                    </form>
+                </div>
+            </li>
+        <% }) %>
+    </ul>
+    <form action="/" style="display:flex; justify-content: center; margin-top: 40px; margin-bottom: 20px; ">
+        <button type="submit" class="button" style="width: 300px; height: 50px;">Back to home page</button>
+    </form>
+    
+</body>
+</html>
